@@ -1,0 +1,28 @@
+{
+  "name": "insight",
+  "version": "1.0.0",
+  "description": "Generate insight using AI based on Search Logs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nzeeshan6/Insight.git"
+  },
+  "keywords": [
+    "insight"
+  ],
+  "author": "nzeeshan6@gmail.com",
+  "license": "BSD-3-Clause",
+  "bugs": {
+    "url": "https://github.com/nzeeshan6/Insight/issues"
+  },
+  "homepage": "https://github.com/nzeeshan6/Insight#readme",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "openai": "^4.52.3"
+  }
+}
