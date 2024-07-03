@@ -19,6 +19,7 @@
     "url": "https://github.com/nzeeshan6/Insight/issues"
   },
   "homepage": "https://github.com/nzeeshan6/Insight#readme",
+  "type":"module",
   "dependencies": {
     "body-parser": "^1.20.2",
     "dotenv": "^16.4.5",

@@ -1,6 +1,6 @@
 // Import necessary libraries
 import dotenv from "dotenv";
-dotenv.config({ path: "secret.env" });
+dotenv.config();
 
 import { OpenAI } from "openai";
 
