@@ -1,29 +1,18 @@
-// Import necessary libraries
-import dotenv from "dotenv";
-dotenv.config();
+import express from "express";
+import json from "body-parser";
+import path from "path";
+// import Server from "http";
 
-import { OpenAI } from "openai";
+const app = express();
+const dirname = import.meta.dirname;
+// const server = Server(app);
 
-// Access the OpenAI API key from the environment variables
-const apiKey = process.env.OPENAI_API_KEY;
-console.log("api: ", apiKey);
+app.use(express.static(path.join(dirname + "/public")));
 
-// Configure the OpenAI client
-const openai = new OpenAI({ apiKey });
+app.listen(3000, () => {
+  console.log("Listening at PORT [3000]");
+});
 
-// Example function to call GPT-4
-async function callGPT4(prompt) {
-  try {
-    const response = await openai.chat.completions.create({
-      model: "gpt-3.5-turbo",
-      messages: [{ role: "user", content: prompt }],
-    });
-
-    console.log(response.data.choices[0].message.content);
-  } catch (error) {
-    console.error("Error calling GPT-4:", error);
-  }
-}
-
-// Call the function with a prompt
-callGPT4("Hello, GPT-4! How can I set up OpenAI in my Codespace?");
+app.get("/", (request, response) => {
+  response.sendFile(path.join(dirname + "/public/src/index.html"));
+});

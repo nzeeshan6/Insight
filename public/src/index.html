@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+    />
+    <title>Insight | The Solution Squad</title>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <div class="logo">
+          <img src="\image\logo.png" alt="" />
+        </div>
+        <div>
+          <h1>Insight</h1>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <div id="input-section">
+        <div id="patent-input">
+          <center>
+            <label for="patentNumber">
+              <h3>Patent Number</h3>
+            </label>
+            <input
+              type="text"
+              id="patentNumber"
+              name="Patent Number"
+              placeholder="Patent Number"
+            />
+          </center>
+        </div>
+        <div id="search-section">
+          <center>
+            <label for="searchLogs">
+              <h3>Search Logs</h3>
+            </label>
+            <textarea
+              name="Search Logs"
+              id="searchLogs"
+              rows="20"
+              cols="40"
+            ></textarea>
+          </center>
+        </div>
+        <div id="action-button">
+          <button id="getInsight">Generate Insights</button>
+        </div>
+      </div>
+      <div id="response-section"></div>
+    </main>
+    <script src="script/index.js"></script>
+  </body>
+</html>
