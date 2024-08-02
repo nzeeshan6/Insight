@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+    />
+    <title>Insight | The Solution Squad</title>
+  </head>
+  <body style="padding-top: 4.5rem">
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <div
+          class="container-fluid d-flex justify-content-between align-items-center"
+        >
+          <a class="navbar-brand d-flex align-items-center" href="#">
+            <img
+              src="\image\logo.png"
+              alt="Logo"
+              class="d-inline-block align-text-top"
+              style="height: 40px; margin-right: 10px"
+            />
+            <h1 class="mb-0" style="font-size: 1.5rem">Insight</h1>
+          </a>
+          <div class="d-flex align-items-center">
+            <span
+              class="navbar-text"
+              style="font-size: 1.25rem; margin-right: 10px"
+              >The Solution Squad</span
+            >
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main class="container my-5" style="margin-top: 4.5rem">
+      <div id="input-section" class="row">
+        <div id="patent-input" class="col-md-6 mb-4">
+          <div class="card">
+            <div class="card-body">
+              <center>
+                <label for="patentNumber" class="form-label">
+                  <h3>Patent Number</h3>
+                </label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="patentNumber"
+                  name="Patent Number"
+                  placeholder="Patent Number"
+                />
+              </center>
+            </div>
+          </div>
+        </div>
+        <div id="search-section" class="col-md-6 mb-4">
+          <div class="card">
+            <div class="card-body">
+              <center>
+                <label for="searchLogs" class="form-label">
+                  <h3>Search Logs</h3>
+                </label>
+                <textarea
+                  class="form-control"
+                  name="Search Logs"
+                  id="searchLogs"
+                  rows="10"
+                  placeholder="Enter search logs here"
+                ></textarea>
+              </center>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="prompt-section" class="row">
+        <div id="search-prompt" class="col-md-12 mb-4">
+          <div class="card">
+            <div class="card-body">
+              <label for="searchPrompt" class="form-label">
+                <h3>Search Prompt</h3>
+              </label>
+              <textarea
+                class="form-control searchPrompt"
+                id="searchPrompt"
+                rows="3"
+                placeholder="Enter your search prompt here"
+              ></textarea>
+              <div class="text-center mt-3">
+                <button
+                  id="addPromptButton"
+                  class="btn btn-secondary"
+                  onclick="addNewPrompt()"
+                >
+                  Add Another Prompt
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="action-button" class="text-center mb-5">
+        <button id="getInsight" class="btn btn-primary">
+          Generate Insights
+        </button>
+      </div>
+      <div id="response-section" class="row" style="display: none">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-body">
+              <div id="insightField"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script>
+      function addNewPrompt() {
+        const promptSection = document.getElementById("prompt-section");
+        const newPromptDiv = document.createElement("div");
+        newPromptDiv.className = "col-md-12 mb-4";
+        newPromptDiv.innerHTML = `
+          <div class="card">
+            <div class="card-body">
+              <textarea
+                class="form-control searchPrompt"
+                rows="3"
+                placeholder="Enter another prompt here"
+              ></textarea>
+            </div>
+          </div>
+        `;
+        promptSection.appendChild(newPromptDiv);
+      }
+    </script>
+    <script src="script/index.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/js/bootstrap.min.js"></script>
+  </body>
+</html>
