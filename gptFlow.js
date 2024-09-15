@@ -1,7 +1,7 @@
 // Import necessary libraries
 import "dotenv/config";
 import { OpenAI } from "openai";
-import { systemPrompt1, systemPrompt2 } from "./systemPrompt.js";
+import { systemPrompt1, systemPrompt } from "./systemPrompt.js";
 
 // Access the OpenAI API key from the environment variables
 const apiKey = process.env.OPENAI_API_KEY;
@@ -30,14 +30,25 @@ export async function callGPT4(patentNumber, searchLogs) {
   return new Promise(async (resolve, reject) => {
     try {
       // Creating a Chat Sequence
+
+      var msg = [{role:"system", content: systemPrompt1}];
+
+      for (var i=0;i<systemPrompt.length;i++){
+        msg.push({role:"system", content: systemPrompt[i]});
+      }
+
+      msg.push({ role: "user", content: `Patent Number: ${patentNumber}` });
+      msg.push({ role: "user", content: `Search Logs: ${searchLogs}` }); 
+
       const response = await openai.chat.completions.create({
         model: model,
-        messages: [
-          { role: "system", content: systemPrompt1 },
-          { role: "system", content: systemPrompt2 },
-          { role: "user", content: `Patent Number: ${patentNumber}` },
-          { role: "user", content: `Search Logs: ${searchLogs}` },
-        ],
+        messages: msg,
+        // messages: [
+        //   { role: "system", content: systemPrompt1 },
+        //   { role: "system", content: systemPrompt2 },
+        //   { role: "user", content: `Patent Number: ${patentNumber}` },
+        //   { role: "user", content: `Search Logs: ${searchLogs}` },
+        // ],
       });
       resolve(response.choices[0].message.content);
       // console.log(response.choices);
